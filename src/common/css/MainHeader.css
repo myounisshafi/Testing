@@ -1,0 +1,19 @@
+.siteIcon {
+}
+.navBar {
+}
+.header {
+  background-color: red;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.headerTitle {
+  color: white;
+  font-size: 20pt;
+}
+.gap10 {
+  gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

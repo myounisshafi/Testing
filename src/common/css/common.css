@@ -1,0 +1,26 @@
+.leafAnimation {
+  width: 100px;
+  height: 100px;
+  animation: leafAnimationFrames infinite 10s linear;
+}
+@keyframes leafAnimationFrames {
+  from {
+    transform: translate(10px, -100px) rotate(0deg);
+  }
+  to {
+    transform: translate(10px, 500px) rotate(180deg);
+  }
+}
+.leaf2Animation {
+  width: 100px;
+  height: 100px;
+  animation: leaf2AnimationFrames infinite 7s linear;
+}
+@keyframes leaf2AnimationFrames {
+  from {
+    transform: translate(10px, -100px) rotate(80deg);
+  }
+  to {
+    transform: translate(10px, 500px) rotate(180deg);
+  }
+}
