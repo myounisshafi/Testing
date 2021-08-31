@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Change Code
+      run: |
+        ci_dir="git-push"
+        if [ ! -d "$ci_dir" ]; then
+          mkdir $ci_dir
+        fi
+        echo $(date) >> ${ci_dir}/date.txt
+
+    - name: Push to Github
+      uses: x-actions/git-push@release/v1
+      env:
+        GITHUB_EMAIL: "me@xiexianbin.cn"
+        GITHUB_USERNAME: "xiexianbin"
+        PUBLISH_REPO: https://${{ secrets.GitHub_PAT }}@github.com/x-actions/ci.git
+        PUBLISH_BRANCH: git-push
+        PUBLISH_DIR: ./git-push
