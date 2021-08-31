@@ -8,6 +8,7 @@ const get = (url, options = {}) => new Promise((resolve, reject) => https
         const chunks = [];
         res.on('data', (chunk) => chunks.push(chunk));
         res.on('end', () => {
+            
             const body = Buffer.concat(chunks).toString('utf-8');
             if (res.statusCode < 200 || res.statusCode > 300) {
                 return reject(Object.assign(
