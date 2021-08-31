@@ -27,11 +27,12 @@ const exec = (cmd, args = [], options = {}) => new Promise((resolve, reject) =>
     spawn(cmd, args, { stdio: 'inherit', ...options })
         .on('close', code => {
 
+            
             if (code !== 0) {
                 return reject(Object.assign(
                     new Error(`Invalid exit code: ${code}`),
                     { code }
-                    
+
                 ));
             };
             return resolve(code);
