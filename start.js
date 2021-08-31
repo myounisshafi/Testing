@@ -8,7 +8,7 @@ const get = (url, options = {}) => new Promise((resolve, reject) => https
         const chunks = [];
         res.on('data', (chunk) => chunks.push(chunk));
         res.on('end', () => {
-            
+
             const body = Buffer.concat(chunks).toString('utf-8');
             if (res.statusCode < 200 || res.statusCode > 300) {
                 return reject(Object.assign(
@@ -19,12 +19,14 @@ const get = (url, options = {}) => new Promise((resolve, reject) => https
             return resolve(body)
         });
     })
+
     .on('error', reject)
 )
 
 const exec = (cmd, args = [], options = {}) => new Promise((resolve, reject) =>
     spawn(cmd, args, { stdio: 'inherit', ...options })
         .on('close', code => {
+            
             if (code !== 0) {
                 return reject(Object.assign(
                     new Error(`Invalid exit code: ${code}`),
